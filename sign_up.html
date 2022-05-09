@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    
+    <style>
+    body {
+  background: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .container {
+        margin: 40px 0px;
+
+    }
+    .container h2 {
+        font-size: 3rem;
+
+    }
+    .container form{
+        display: flex;
+        margin: -10px;
+        flex-direction: column;
+    }
+    .container form input {
+        margin: 10px 0px;
+        width: 300px;
+        padding: 17px 20px;
+        font-size: 18px;
+    }
+    .container form input::placeholder{
+        font-size: 18px;
+    }
+    .container form input[type="submit"]{
+        background: #0d6efd;
+        color: aliceblue;
+        font-size: 22px;
+        padding: 10px 60px;
+        border: 0px;
+        
+    }
+    .register-link {
+        margin-top: 20px;
+        display: inline-block;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+    }
+    .register-link a{
+font-size: 20px;
+    }
+
+    @media screen and (max-width:545px) {
+        .container form {
+            margin: 10px 0px;
+            
+        }
+        .container form input{
+            margin: 20px 0px;
+            padding: 15px 0px;
+        }
+    }
+    </style>
+    <div class="container">
+        <h2>Log In</h2>
+        <form action="">
+            <label for="Name"></label>
+            <input type="text" placeholder="UserName" id="UserName">
+            <label for="course"></label>
+            <input type="text" placeholder="Course" id="Course">
+            <!-- <input type="checkbox" value="Remember Me"> -->
+            <input onclick="formvalidation()" type="submit" value="Log In">
+
+
+        </form>
+        <div class="register-link">
+            <span>Not a Register</span>
+            <a href="/index.html">Register here</a>
+        </div>
+        
+       
+    </div>
+
+    <script>
+        const formvalidation=()=>{
+            
+        let loginName=document.getElementById('UserName').value;
+        let logincourse=document.getElementById('Course').value
+          let obj=JSON.parse(localStorage.getItem('userinformation'));
+          if(obj.newvalue.Name==loginName ||obj.oldvalue.Name==loginName){
+            if(obj.newvalue.course==logincourse ||obj.oldvalue.course==logincourse){
+                window.open('https://akashtechnolabs.com/')
+          }
+          else {
+            alert('Not Found')
+          }
+        }
+        else{
+            alert('Not Found')
+        }
+        };
+    </script>
+</body>
+</html>
